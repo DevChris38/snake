@@ -30,7 +30,7 @@ window.onload = function()
     {
         ctx.clearRect(0, 0, canvaswidth*blockSize, canvasheight*blockSize);
         snakee.draw();
-        verify();
+        /*verify();*/
         snakee.advance();
         setTimeout(refreshCanvas, delay);
     }
