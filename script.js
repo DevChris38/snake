@@ -1,6 +1,6 @@
 var canvaswidth = 30;
 var canvasheight = 20;
-var blockSize = 30;
+var blockSize = 20;
 var ctx;
 var delay = 100;
 var snakee;
@@ -117,7 +117,7 @@ window.onload = function()
         };
     };
 
-    function perdu()
+    /*function perdu()
     {
         if (confirm('Perdu ! Vous avez mang\u00e9 ' + score + ' pommes. Voulez-vous rejouer ?')){
             location.reload();
@@ -125,7 +125,25 @@ window.onload = function()
             alert('Merci d\'avoir jou\u00e9, \u00e0 bient\u00f4t');
             return;
         }
-    };
+    };*/
+
+    function perdu() 
+    {
+        ctx.font = '20px arial';
+        var text = ctx.measureText('Perdu ! Vous avez mang\u00e9 ' + score + ' pommes. Voulez-vous rejouer ?');
+        ctx.fillText('Perdu ! Vous avez mang\u00e9 ' + score + ' pommes. Voulez-vous rejouer ?', (canvaswidth*blockSize-text.width)/2, 50, canvaswidth*blockSize);
+        var buttonOui = document.createElement('button');
+        buttonOui.type = 'button';
+        buttonOui.innerHTML= "OUI";
+
+        buttonOui.onClick = function() {
+            location.reload();
+        };
+
+        var container = document.getElementById('main');
+        container.appendChild(button);
+        
+    }
 
     function newApple()
     {
